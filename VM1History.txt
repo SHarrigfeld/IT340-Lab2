@@ -1,0 +1,70 @@
+    1  sudo apt update
+    2  sudo apt install autoconf gcc make unzip libgd-dev libmcrypt-dev libssl-dev dc snmp libnet-snmp-perl gettext
+    3  cd ~
+    4  curl -L -O https://github.com/NagiosEnterprises/nagioscore/archive/nagios-4.4.4.tar.gz
+    5  tar zxf nagios-4.4.4.tar.gz
+    6  ./configure --with-httpd-conf=/etc/apache2/sites-enabled
+    7  /configure --with-httpd-conf=/etc/apache2/sites-enabled
+    8  ls
+    9  cd nagioscore-nagios-4.4.4
+   10  ./configure --with-httpd-conf=/etc/apache2/sites-enabled
+   11  make all
+   12  sudo make install-groups-users
+   13  sudo make install
+   14  sudo make install-daemoninit
+   15  sudo make install-commandmode
+   16  sudo make install-config
+   17  sudo make install-webconf
+   18  sudo apt-get install apache2 -y
+   19  sudo make install-webconf
+   20  sudo a2enmod rewrite
+   21  systemctl restart apache2
+   22  sudo a2enmod rewrite
+   23  sudo a2enmod cgi
+   24  systemctl restart apache2
+   25  sudo a2enmod cgi
+   26  sudo usermod -a -G nagios www-data
+   27  sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+   28  sudo systemctl restart apache2
+   29  cd ~
+   30  curl -L -O https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
+   31  tar zxf nagios-plugins-<^>2.2.1<^.tar.gz
+   32  ls
+   33  cd nagios-plugins-2.2.1.tar.gz 
+   34  cd nagioscore-nagios-4.4.4/
+   35  tar zxf nagios-plugins-<^>2.2.1<^.tar.gz
+   36  cd ~
+   37  cd nagios-4.4.4.tar.gz
+   38  curl -L -O https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
+   39  tar zxf nagios-plugins-<^>2.2.1<^.tar.gz
+   40  ls
+   41  cd nagios-plugins-2.2.1.tar.gz 
+   42  cd nagios-plugins-2.2.1
+   43  man curl
+   44  man tar
+   45  tar zxf nagios-plugins-<^>2.2.1<^.tar.gz
+   46  tar zxf nagios-plugins-2.2.1.tar.gz
+   47  ls
+   48  cd nagios-plugins-2.2.1
+   49  ./configure
+   50  make
+   51  sudo make install
+   52  cd ~
+   53  curl -L -O https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-3.2.1/nrpe-3.2.1.tar.gz
+   54  tar zxf nrpe-3.2.1.tar.gz
+   55  cd nrpe-3.2.1
+   56  ./configure
+   57  make check_nrpe
+   58  sudo make install-plugin
+   59  sudo nano /usr/local/nagios/etc/nagios.cfg
+   60  sudo mkdir /usr/local/nagios/etc/servers
+   61  sudo nano /usr/local/nagios/etc/objects/contacts.cfg
+   62  sudo nano /usr/local/nagios/etc/objects/commands.cfg
+   63  sudo systemctl start nagios
+   64  sudo systemctl status nrpe.service
+   65  sudo systemctl status nagios
+   66  cd ..
+   67  ls
+   68  history VM1History.txt
+   69  ls
+   70  history > VM1History.txt
